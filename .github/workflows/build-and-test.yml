@@ -1,0 +1,28 @@
+name: Build and Test .NET API
+
+on:
+  push:
+    branches:
+      - main  # Trigger on pushes to the main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Use .NET SDK
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 5.x  # Specify the .NET version (update as needed)
+
+      - name: Restore Dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build
+
+      - name: Test
+        run: dotnet test
