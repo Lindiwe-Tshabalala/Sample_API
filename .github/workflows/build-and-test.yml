@@ -19,10 +19,10 @@ jobs:
           dotnet-version: 8.x  # Specify the .NET version (update as needed)
 
       - name: Restore Dependencies
-        run: dotnet restore MyAPI/Program.cs
+        run: dotnet restore MyAPI/MyAPI.sln
 
       - name: Build
-        run: dotnet build
+        run: dotnet build MyAPI/MyAPI.sln
 
       - name: Test
-        run: dotnet test
+        run: dotnet test MyAPI/MyAPI.csproj
